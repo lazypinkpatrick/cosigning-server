@@ -13,6 +13,9 @@ export class Message {
     @Column()
     body: string;
 
+    @Column()
+    type: string;
+
     @CreateDateColumn()
     create: Date;
 

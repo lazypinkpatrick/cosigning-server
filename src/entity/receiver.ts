@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, CreateDateColumn } from "typeorm";
 import { Message } from "./message";
 
 @Entity()
@@ -11,7 +11,7 @@ export class Receiver {
     owner: string;
 
     @ManyToOne(() => Message, (message) => message.receivers, {
-        cascade: true
+        onDelete: 'CASCADE'
     })
     @JoinColumn()
     message: Message
